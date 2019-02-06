@@ -1,5 +1,8 @@
 # BeautyPy
-Three filters for image in Python
+
+<img src="img/logo.png" align="right" height="200" width="200"/>
+
+Three filters for image in Python.
 
 ## Contributors
 
