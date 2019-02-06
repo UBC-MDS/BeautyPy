@@ -15,3 +15,13 @@ This function turns a colorful image into an embossment-type image. It replace e
 
 **Sketch**  
 This function detects discontinuities in brightness within an image, finds the boundaries of objects and transform the color image into a gray image with highlighting on these boundaries.
+
+## Similar packages in Python 
+
+In python, package `OpenCv` can process images. 
+Specifically, function `cv2.blur` works as the same as our function `blur`, which can blur the image. It is achieved by convolving the image with an average filter. [cv2.blur](https://docs.opencv.org/3.1.0/d4/d13/tutorial_py_filtering.html)
+
+Function `cv2.cvtColor` works as the same as our function `emboss`, which can change image's color to gray. Additionally, parameter  ?cv2.COLOR_BGR2GRAY? can change image's color to gray. [cv2.cvtColor](https://extr3metech.wordpress.com/2012/09/23/convert-photo-to-grayscale-with-python-opencv/)
+
+Function `cv2.Canny` works as the same as our function `sketch`, which can detect image's edge. 
+[cv2.Canny](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_canny/py_canny.html)
