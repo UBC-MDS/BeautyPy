@@ -38,7 +38,7 @@ mpimg.imsave(exp_output_file_path, exp_output)
 
 def test_wrong_file_type():
     with pytest.raises(OSError):
-        blur("test_imgs/emboss/input.pdf", test_output_file_path)
+        emboss("test_imgs/emboss/input.pdf", test_output_file_path)
 
 def test_non_string_input():
     with pytest.raises(AttributeError):
@@ -46,15 +46,15 @@ def test_non_string_input():
 
 def test_non_string_output():
     with pytest.raises(AttributeError):
-        blur(test_input_file_path, 2384957372628)
+        emboss(test_input_file_path, 2384957372628)
 
 def test_nonexistent_input_path():
     with pytest.raises(FileNotFoundError):
-        blur("test_imgs/hello/world.jpg", test_output_file_path)
+        emboss("test_imgs/hello/world.jpg", test_output_file_path)
 
 def test_nonexistent_output_path():
     with pytest.raises(FileNotFoundError):
-        blur(test_input_file_path, "./123/456.jpg")
+        emboss(test_input_file_path, "./123/456.jpg")
 
 def test_emboss():
     emboss(test_input_file_path, test_output_file_path)
