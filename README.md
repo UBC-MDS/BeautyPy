@@ -15,7 +15,7 @@ Image processing tool in Python.
 ## Overview
 Nearly everyone has some experience with Image processing, which is around our daily life. For example, when we use iPhone's camera to take pictures, it allows us to choose a filter which can add some special effects on these pictures. While using these filters, people might have wondered how these special effects are realized.
 
-We developed this package that performs digital image processing on .jpg images. People can use it to transform images into new images with some special effects, such as embossing, compress images to reduce file sizes, and calculate the exact number of bytes an image has. We hope to advance and add more functions later on.  
+We developed this package that performs digital image processing on .jpg images. People can use it to transform images into new images with some special effects, such as embossing, to compress images to reduce file sizes, and to calculate the exact number of bytes an image has. We hope to advance and add more functions later on.  
 
 ## Functions
 **Emboss**  

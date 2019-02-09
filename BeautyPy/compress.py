@@ -24,4 +24,3 @@ def compress(input_path, output_path):
     mpimg.imsave(output_path, output_img)
 
     return
-    
