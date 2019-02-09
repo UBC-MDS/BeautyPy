@@ -4,21 +4,20 @@
 import numpy as np
 import matplotlib.image as mpimg
 
-def emboss(input_path, output_path):
+def calculate_bytes(input_path):
 
     '''
-    This function embosses the original image and saves the embossed image to path.
+    This function calculate the size, in bytes, of a given image.
 
     Parameters
     ---------------------------------------
-    input_path -> the file path for the original image we want to compress
-    output_path ->  the file path to save the compressed image
+    input_path -> the file path for the image we want to calculate the byte size of
 
     Return
     ---------------------------------------
-    NA
+    numeric value of the image size, the unit is bytes
     '''
-    
+
     input_img = mpimg.imread(input_path)
 
     return
