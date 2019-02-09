@@ -94,7 +94,7 @@ def test_nonexistent_input_path():
     Function to test if the input path exists or not 
     '''
     with pytest.raises(FileNotFoundError):
-        compress("test_imgs/hello/world.jpg", test_output_file_path)
+        emboss("test_imgs/hello/world.jpg", test_output_file_path)
 
 def test_nonexistent_output_path():
     '''
@@ -102,7 +102,7 @@ def test_nonexistent_output_path():
     '''
     
     with pytest.raises(FileNotFoundError):
-        compress(test_input_file_path, "./123/456.jpg")        
+        emboss(test_input_file_path, "./123/456.jpg")        
 
     
     
