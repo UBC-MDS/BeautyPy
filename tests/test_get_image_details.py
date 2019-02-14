@@ -4,7 +4,7 @@ import pytest
 import matplotlib.image as mpimg
 
 
-test_input_file_path = "test_imgs/calculate_bytes/test_input.jpg"
+test_input_file_path = "test_imgs/image_details/test_input.jpg"
 
 test_input = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202, 157, 152], [198, 159, 154]],
                   [[202, 167, 163], [202, 165, 159], [200, 163, 157], [199, 160, 153], [200, 161, 156]],
@@ -27,7 +27,7 @@ This function tests whether the input file is a image.
 '''
 
     with pytest.raises(OSError):
-        calculate_bytes("test_imgs/calculate_bytes/input.pdf")
+        image_details("test_imgs/image_details/input.pdf")
 
 def test_non_string_input():
 '''
@@ -35,19 +35,22 @@ This function tests whether the input path is a valid string.
 '''
 
     with pytest.raises(AttributeError):
-        calculate_bytes(989999999999)
+        image_details(989999999999)
 
 def test_nonexistent_input_path():
 '''
 This function tests whether the input path exists.
 '''
     with pytest.raises(FileNotFoundError):
-        calculate_bytes("test_imgs/hello/world.jpg")
+        image_details("test_imgs/hello/world.jpg")
 
-def test_calculate_bytes():
+def (arg):
+    pass
+
+def test_image_details():
 '''
-This function tests whether calculate_bytes function returns the right image size in bytes.
+This function tests whether image_details function returns the right image size in bytes.
 '''
-    test_output = calculate_bytes(test_input_file_path)
+    test_output = image_details(test_input_file_path)
     expected_output = 10*5*24/8
-    assert np.array_equal(test_output, expected_output), "The calculate_bytes function does not work properly."
+    assert np.array_equal(test_output, expected_output), "The image_details function does not work properly."

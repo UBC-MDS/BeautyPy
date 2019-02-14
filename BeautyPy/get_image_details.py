@@ -13,7 +13,7 @@ def image_details(input_path, detail = 'All'):
 
     Parameters
     ---------------------------------------
-    input_path (string) ->  The file path for the image we want to calculate the byte size of
+    input_path (string) ->  The file path for the image we want to return information of.
     detail (string) -> The name of attribute that the function will return. Default set to be 'All'.
                         Available choices are: 'All', 'Dimension', 'Width', 'Height', and 'Aspect Ratio'.
 
