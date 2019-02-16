@@ -5,7 +5,7 @@
 
 
 import numpy as np
-import matplotlib.image as mpimg
+#import matplotlib.image as mpimg
 import skimage.io
 
 def flip(input_path, output_path,direction):
@@ -77,5 +77,3 @@ def flip(input_path, output_path,direction):
         print("General Error:")
         print(e)
         raise
-
-    
