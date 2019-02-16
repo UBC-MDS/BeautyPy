@@ -5,47 +5,46 @@
 
 
 import numpy as np
-import matplotlib.image as mpimg
+import skimage.io
+from PIL import Image
 
 def flip(input_path, output_path,direction):
 
     '''
-    This function flips the images either vertically or horizentally and save it to the output path 
-
+    This function flips the images either vertically or horizentally and save it to the output path
     Parameters
     ---------------------------------------
     input_path -> the file path for the original image we want to compress
     output_path ->  the file path to save the compressed image
-    direction: direction to flip, "h" or "v", which represents horizontal and vertical repectively 
-    
+    direction: direction to flip, "h" or "v", which represents horizontal and vertical repectively
     Return
     ---------------------------------------
     an image file saved in output path
     '''
     assert direction in ["h","v"], "Invalid input for direction"
-    
+
     try:
-        # read input image 
-        input_img = mpimg.imread(input_path)
+        # read input image
+        input_img = skimage.io.imread(test_input_file_path)
     except FileNotFoundError:
-        print("The input path/file does not exist, or the file is not a valid image file.") 
+        print("The input path/file does not exist, or the file is not a valid image file.")
         raise
     except TypeError:
         print("Please provide a string as the path for the input image file.")
         raise
     except AttributeError:
         print("Please provide a string as the path for the input image file.")
-        raise 
+        raise
     except Exception as e:
         print("General Error:")
         print(e)
         raise
 
-    input_img = mpimg.imread(input_path)    
+
     col=input_img.shape[1]
     row=input_img.shape[0]
     output_img=input_img.copy()
-    # vertical flip 
+    # vertical flip
     if direction == "v":
         for j in range(col):
             for i in range(row):
@@ -54,13 +53,14 @@ def flip(input_path, output_path,direction):
         for i in range(row):
             for j in range(col):
                 output_img[i,j]=input_img[row-1-i,j]
-        
-    try: 
+
+    try:
         # save output array as an image file
-        mpimg.imsave(output_path, output_img) 
+        img = Image.fromarray(output_img)
+        img.save(output_path)
     except FileNotFoundError:
         print("The output path does not exist.")
-        raise 
+        raise
     except ValueError:
         print("Please provide a valid file path or valid file type in the output path.")
         raise
@@ -69,11 +69,8 @@ def flip(input_path, output_path,direction):
         raise
     except AtrributeError:
         print("Please provide a string as the path for the output image")
-        raise 
+        raise
     except Exception as e:
         print("General Error:")
         print(e)
         raise
-        
-    
-
