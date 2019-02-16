@@ -5,6 +5,7 @@
 
 
 import numpy as np
+
 import skimage.io
 from PIL import Image
 
@@ -12,11 +13,13 @@ def flip(input_path, output_path,direction):
 
     '''
     This function flips the images either vertically or horizentally and save it to the output path
+
     Parameters
     ---------------------------------------
     input_path -> the file path for the original image we want to compress
     output_path ->  the file path to save the compressed image
     direction: direction to flip, "h" or "v", which represents horizontal and vertical repectively
+
     Return
     ---------------------------------------
     an image file saved in output path
@@ -25,6 +28,7 @@ def flip(input_path, output_path,direction):
 
     try:
         # read input image
+
         input_img = skimage.io.imread(test_input_file_path)
     except FileNotFoundError:
         print("The input path/file does not exist, or the file is not a valid image file.")
@@ -58,6 +62,7 @@ def flip(input_path, output_path,direction):
         # save output array as an image file
         img = Image.fromarray(output_img)
         img.save(output_path)
+
     except FileNotFoundError:
         print("The output path does not exist.")
         raise

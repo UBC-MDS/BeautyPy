@@ -24,7 +24,9 @@ test_output_file_path = "test_imgs/compress/test_output.png"
 
 def test_flip_same_size():
     '''
+
     Test that the output matrix is correct
+
     '''
     flip(test_input_file_path,test_output_file_path,"v")
     input_img = skimage.io.imread(test_input_file_path)
@@ -33,7 +35,9 @@ def test_flip_same_size():
 
 def test_flip_input_type():
     '''
+
     Test that if the input type is correct.
+
 
     '''
     with pytest.raises(TypeError):
@@ -45,7 +49,9 @@ def test_flip_input_type():
 
 def test_flip_input_shape():
     '''
+
     Test that if the image has correct shape
+
     '''
     flip(test_input_file_path,test_output_file_path,"v")
     input_img = skimage.io.imread(test_input_file_path)
@@ -55,14 +61,18 @@ def test_flip_input_shape():
 
 def test_nonexistent_input_path():
     '''
+
     Test if the input path exists or not
+
     '''
     with pytest.raises(FileNotFoundError):
         flip("test_imgs/hello/world.png", test_output_file_path,"v")
 
 def test_nonexistent_output_path():
     '''
+
     Test if the output path exists or not
+
     '''
 
     with pytest.raises(FileNotFoundError):
@@ -70,7 +80,9 @@ def test_nonexistent_output_path():
 
 def test_invalid_input():
     '''
+
     Test if the input path is valid
+
     '''
     with pytest.raises(AttributeError):
         flip(test_input_file_path,test_output_file_path,123)
