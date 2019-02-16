@@ -64,11 +64,14 @@ detail: `string` The name of attribute that the function will return. Default se
 
 A data frame that has the detailed information about input image.
 
+
 ## Similar packages in Python
-
-In python, package `scikit-image` can process images.[compress](https://scikit-image.org/)
-
 Function `cv2.cvtColor` works as the same as our function `emboss`, which can change image's color to gray. Additionally, parameter  ?cv2.COLOR_BGR2GRAY? can change image's color to gray. [cv2.cvtColor](https://extr3metech.wordpress.com/2012/09/23/convert-photo-to-grayscale-with-python-opencv/)
+
+In python, package `scikit-image` can process images.[flip](https://scikit-image.org/)
+
 
 Function `bytearray` works as the same as our function `Calculate_Bytes`
 [bytearray](https://www.programiz.com/python-programming/methods/built-in/bytearray)
+
+Our package focus on emboss, rotate function. This package rewrites some functions in the existing package. It uses matrix computation to process images. 
