@@ -8,7 +8,9 @@ import numpy as np
 import skimage.io
 import pytest
 import matplotlib.image as mpimg
+from PIL import Image
 from BeautyPy.flip import flip
+
 # In[13]:
 
 
@@ -22,7 +24,9 @@ test_output_file_path = "test_imgs/compress/test_output.png"
 
 def test_flip_same_size():
     '''
-    Function to test that the output matrix is correct
+
+    Test that the output matrix is correct
+
     '''
     flip(test_input_file_path,test_output_file_path,"v")
     input_img = skimage.io.imread(test_input_file_path)
@@ -31,8 +35,9 @@ def test_flip_same_size():
 
 def test_flip_input_type():
     '''
-    Function to test that if the input type is correct.
-    If is incorrect, a TypeError is raised
+
+    Test that if the input type is correct.
+
 
     '''
     with pytest.raises(TypeError):
@@ -44,7 +49,9 @@ def test_flip_input_type():
 
 def test_flip_input_shape():
     '''
-    Function to test that if the image has correct shape
+
+    Test that if the image has correct shape
+
     '''
     flip(test_input_file_path,test_output_file_path,"v")
     input_img = skimage.io.imread(test_input_file_path)
@@ -54,14 +61,18 @@ def test_flip_input_shape():
 
 def test_nonexistent_input_path():
     '''
-    Function to test if the input path exists or not
+
+    Test if the input path exists or not
+
     '''
     with pytest.raises(FileNotFoundError):
         flip("test_imgs/hello/world.png", test_output_file_path,"v")
 
 def test_nonexistent_output_path():
     '''
-    Function to test if the output path exists or not
+
+    Test if the output path exists or not
+
     '''
 
     with pytest.raises(FileNotFoundError):
@@ -69,7 +80,9 @@ def test_nonexistent_output_path():
 
 def test_invalid_input():
     '''
-    Function to test if the input path is valid
+
+    Test if the input path is valid
+
     '''
     with pytest.raises(AttributeError):
         flip(test_input_file_path,test_output_file_path,123)

@@ -5,8 +5,9 @@
 
 
 import numpy as np
-#import matplotlib.image as mpimg
+
 import skimage.io
+from PIL import Image
 
 def flip(input_path, output_path,direction):
 
@@ -27,7 +28,8 @@ def flip(input_path, output_path,direction):
 
     try:
         # read input image
-        input_img = mpimg.imread(input_path)
+
+        input_img = skimage.io.imread(test_input_file_path)
     except FileNotFoundError:
         print("The input path/file does not exist, or the file is not a valid image file.")
         raise
@@ -42,7 +44,7 @@ def flip(input_path, output_path,direction):
         print(e)
         raise
 
-    input_img = skimage.io.imread(test_input_file_path)
+
     col=input_img.shape[1]
     row=input_img.shape[0]
     output_img=input_img.copy()
@@ -60,7 +62,7 @@ def flip(input_path, output_path,direction):
         # save output array as an image file
         img = Image.fromarray(output_img)
         img.save(output_path)
-        #mpimg.imsave(output_path, output_img)
+
     except FileNotFoundError:
         print("The output path does not exist.")
         raise
