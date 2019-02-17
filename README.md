@@ -30,7 +30,7 @@ This function embosses the original image and saves the embossed image to output
 - output_path: `string` The file path to save the embossed image.
 
 *Return:*   
-- An image file will be saved in output path.
+- An embossed image will be saved in output path.
 
 
 #### Flip
@@ -43,7 +43,7 @@ This function flips the images either vertically or horizontally and save it to 
 - direction: `string` Direction to flip, "h" or "v", which represents horizontal and vertical respectively.
 
 *Return:*  
-- An embossed image file will be saved in output path.
+- An flipped image file will be saved in output path.
 
 
 #### Get_Image_Details
