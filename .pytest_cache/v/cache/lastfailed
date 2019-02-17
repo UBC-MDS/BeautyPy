@@ -1,3 +1,9 @@
 {
-  "tests/test_get_image_details.py": true
+  "tests/test_flip.py::test_flip_input_shape": true,
+  "tests/test_flip.py::test_flip_input_type": true,
+  "tests/test_flip.py::test_flip_same_size": true,
+  "tests/test_flip.py::test_invalid_input": true,
+  "tests/test_flip.py::test_mid_column_vertical": true,
+  "tests/test_flip.py::test_nonexistent_input_path": true,
+  "tests/test_flip.py::test_nonexistent_output_path": true
 }
