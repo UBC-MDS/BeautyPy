@@ -12,7 +12,7 @@
 import numpy as np
 import pytest
 import matplotlib.image as mpimg
-from BeautyPy.emboss import emboss 
+from BeautyPy.emboss import emboss
 
 # initiate file paths
 test_input_file_path = "test_imgs/emboss/test_input.jpg"
@@ -64,4 +64,4 @@ def test_non_string_output():
 def test_emboss():
     emboss(test_input_file_path, test_output_file_path)
     test_output = mpimg.imread(test_output_file_path)
-    assert np.array_equal(test_output, exp_output), "The emboss function does not work properly." 
+    assert np.array_equal(test_output, exp_output), "The emboss function does not work properly."

@@ -6,7 +6,7 @@ import pandas as pd
 from fractions import gcd
 import matplotlib.image as mpimg
 
-def image_details(input_path, detail = 'All'):
+def get_image_details(input_path, detail = 'All'):
 
     '''
     This function returns details about the image, such as dimension, width, height, and image ratio.

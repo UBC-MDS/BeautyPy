@@ -2,9 +2,10 @@ import numpy as np
 import skimage.io
 import pytest
 import matplotlib.image as mpimg
+from PIL import Image
+from BeautyPy.get_image_details import get_image_details
 
-
-test_input_file_path = "test_imgs/image_details/test_input.jpg"
+test_input_file_path = "test_imgs/get_image_details/test_input.png"
 
 test_input = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202, 157, 152], [198, 159, 154]],
                   [[202, 167, 163], [202, 165, 159], [200, 163, 157], [199, 160, 153], [200, 161, 156]],
@@ -18,39 +19,68 @@ test_input = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202,
                   [[194, 151, 142], [196, 153, 144], [197, 154, 145], [198, 155, 146], [195, 155, 147]]],
                  dtype="uint8")
 
+inputImage = Image.fromarray(test_input)
+inputImage.save(test_input_file_path)
 
-mpimg.imsave(test_input_file_path, test_input)
+expexted_details = {'Dimension': dimension, 'Width': w, 'Height': h, 'Aspect Ratio': ratio}
 
-def test_wrong_file_type():
-'''
-This function tests whether the input file is a image.
-'''
+details_df = pd.DataFrame(details, index = ['Image'])
 
-    with pytest.raises(OSError):
-        image_details("test_imgs/image_details/input.pdf")
+
+def test_input_type():
+    '''
+    This function tests whether the input file is the right type.
+    '''
+
+    with pytest.raises(TypeError):
+        get_image_details("image.docx", "All")
+    with pytest.raises(TypeError):
+        get_image_details("test_imgs/emboss/input.pdf", "All")
+    with pytest.raises(TypeError):
+        get_image_details("test_input.jpg", "All")
+
 
 def test_non_string_input():
-'''
-This function tests whether the input path is a valid string.
-'''
+    '''
+    This function tests whether the input path is a valid string.
+    '''
 
     with pytest.raises(AttributeError):
-        image_details(989999999999)
+        get_image_details(99999999, "All")
+
 
 def test_nonexistent_input_path():
-'''
-This function tests whether the input path exists.
-'''
-    with pytest.raises(FileNotFoundError):
-        image_details("test_imgs/hello/world.jpg")
+    '''
+    This function tests whether the input path exists.
+    '''
 
-def (arg):
-    pass
+    with pytest.raises(FileNotFoundError):
+        image_details("test_imgs/hello/world.png", "All")
+
+
+def test_non_string_detail_name():
+    '''
+    This function tests whether the given detail name is a string.
+    '''
+
+    with pytest.raises(TypeError):
+        get_image_details(test_input_file_path, 999)
+
+
+def test_invalid_detail_name():
+    '''
+    This function tests whether the given detail name string is valid.
+    '''
+
+    with pytest.raises(TypeError):
+        get_image_details(test_input_file_path, "wrong name")
+
 
 def test_image_details():
-'''
-This function tests whether image_details function returns the right image size in bytes.
-'''
+    '''
+    This function tests whether get_image_details function returns the right details.
+    '''
+
     test_output = image_details(test_input_file_path)
     expected_output = 10*5*24/8
     assert np.array_equal(test_output, expected_output), "The image_details function does not work properly."
