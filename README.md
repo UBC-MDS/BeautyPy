@@ -51,7 +51,7 @@ This function flips the images either vertically or horizontally and save it to 
 This function returns attributes of the input image, such as dimension, width, height and aspect ratio. Users can choose the attributes they want to look at by specify the name of attribute.
 
 *Parameters:*  
-- nput_path: `string` The file path for the image we want to return information of.
+- input_path: `string` The file path for the image we want to return information of.
 - detail: `string` The name of attribute that the function will return. Default set to be 'All'. Available choices are: 'All', 'Dimension', 'Width', 'Height', and 'Aspect Ratio'.
 
 *Return:*  
@@ -59,13 +59,11 @@ This function returns attributes of the input image, such as dimension, width, h
 
 
 ## Similar packages in Python  
-For image embossing, there are many tools out there. For example, [PineTools](https://pinetools.com/emboss-effect-image) provide an online tool with which people can emboss images instantly. However, the emboss tool from PineTools is not perfect. Theoretically, an emboss image should be grayscale. However, an embossed image from PineTools has some color on some edges. We decided to develop a new emboss tool that has no such problems. At the same time, we wanted to gain deeper understanding of neural network by coding an emboss algorithm.   
+For image embossing, there are many tools out there in the Python ecosystem. For example, Python package [PIL](https://pillow.readthedocs.io/en/5.1.x/reference/ImageFilter.html) provides an emboss filter, along with other filters, with which people can emboss images. However, the `emboss` tool from PIL is not perfect. Theoretically, an emboss image should be grayscale. But an embossed image created from PIL's emboss filter has some colors along some edges. We decided to develop a new emboss tool that has no such problems. At the same time, we wanted to gain deeper understanding of neural network by coding an emboss filter algorithm.   
 
 
-In python, package `scikit-image` can process images.[flip](https://scikit-image.org/)
+For image flipping, there are also many packages available in the Python ecosystem. One example is the [flip function](https://docs.opencv.org/2.4/modules/core/doc/operations_on_arrays.html#flip) from [OpenCV package](https://pypi.org/project/opencv-python/). However, OpenCV's `flip` function works on an array, instead of an image file saved on a computer. So we decided to develop a `flip` tool that can read in a real image file and save the flipped image as another real file on computer.
 
 
-Function `bytearray` works as the same as our function `Calculate_Bytes`
-[bytearray](https://www.programiz.com/python-programming/methods/built-in/bytearray)
-
-Our package focus on emboss, rotate function. This package rewrites some functions in the existing package. It uses matrix computation to process images.
+For getting image details, a Python function [bytearray](https://www.programiz.com/python-programming/methods/built-in/bytearray)
+ works as the same as our function `get_image_details`.
