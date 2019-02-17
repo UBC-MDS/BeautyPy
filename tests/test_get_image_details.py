@@ -1,11 +1,13 @@
+#! /usr/bin/env python
+
 import numpy as np
+import pandas as pd
 import skimage.io
 import pytest
-import matplotlib.image as mpimg
 from PIL import Image
 from BeautyPy.get_image_details import get_image_details
 
-test_input_file_path = "test_imgs/get_image_details/test_input.png"
+test_input_file_path = "tests/test_imgs/get_image_details/test_input.png"
 
 test_input = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202, 157, 152], [198, 159, 154]],
                   [[202, 167, 163], [202, 165, 159], [200, 163, 157], [199, 160, 153], [200, 161, 156]],
@@ -19,12 +21,13 @@ test_input = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202,
                   [[194, 151, 142], [196, 153, 144], [197, 154, 145], [198, 155, 146], [195, 155, 147]]],
                  dtype="uint8")
 
+
 inputImage = Image.fromarray(test_input)
 inputImage.save(test_input_file_path)
 
-expexted_details = {'Dimension': dimension, 'Width': w, 'Height': h, 'Aspect Ratio': ratio}
+expexted_detail = {'Dimension': "5 x 10", 'Width': 5, 'Height': 10, 'Aspect Ratio': "1 : 2"}
 
-details_df = pd.DataFrame(details, index = ['Image'])
+expected_details_df = pd.DataFrame(expexted_detail, index = ['Image'])
 
 
 def test_input_type():
@@ -32,12 +35,10 @@ def test_input_type():
     This function tests whether the input file is the right type.
     '''
 
-    with pytest.raises(TypeError):
-        get_image_details("image.docx", "All")
-    with pytest.raises(TypeError):
-        get_image_details("test_imgs/emboss/input.pdf", "All")
-    with pytest.raises(TypeError):
-        get_image_details("test_input.jpg", "All")
+    with pytest.raises(OSError):
+        get_image_details("tests/test_imgs/get_image_details/input.docx", "All")
+    with pytest.raises(OSError):
+        get_image_details("tests/test_imgs/get_image_details/input.pdf", "All")
 
 
 def test_non_string_input():
@@ -55,7 +56,7 @@ def test_nonexistent_input_path():
     '''
 
     with pytest.raises(FileNotFoundError):
-        image_details("test_imgs/hello/world.png", "All")
+        get_image_details("test_imgs/hello/world.png", "All")
 
 
 def test_non_string_detail_name():
@@ -63,7 +64,7 @@ def test_non_string_detail_name():
     This function tests whether the given detail name is a string.
     '''
 
-    with pytest.raises(TypeError):
+    with pytest.raises(KeyError):
         get_image_details(test_input_file_path, 999)
 
 
@@ -72,7 +73,7 @@ def test_invalid_detail_name():
     This function tests whether the given detail name string is valid.
     '''
 
-    with pytest.raises(TypeError):
+    with pytest.raises(KeyError):
         get_image_details(test_input_file_path, "wrong name")
 
 
@@ -81,6 +82,6 @@ def test_image_details():
     This function tests whether get_image_details function returns the right details.
     '''
 
-    test_output = image_details(test_input_file_path)
-    expected_output = 10*5*24/8
+    test_output = get_image_details(test_input_file_path, "All")
+    expected_output = expected_details_df
     assert np.array_equal(test_output, expected_output), "The image_details function does not work properly."
