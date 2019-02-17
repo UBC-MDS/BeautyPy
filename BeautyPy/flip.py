@@ -5,7 +5,6 @@
 
 
 import numpy as np
-
 import skimage.io
 from PIL import Image
 
@@ -29,12 +28,15 @@ def flip(input_path, output_path,direction):
     try:
         # read input image
 
-        input_img = skimage.io.imread(test_input_file_path)
+        input_img = skimage.io.imread(input_path)
     except FileNotFoundError:
         print("The input path/file does not exist, or the file is not a valid image file.")
         raise
     except TypeError:
         print("Please provide a string as the path for the input image file.")
+        raise
+    except OSError:
+        print("The input file is not an image.")
         raise
     except AttributeError:
         print("Please provide a string as the path for the input image file.")
