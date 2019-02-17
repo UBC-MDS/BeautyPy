@@ -15,7 +15,7 @@ Image processing tool in Python.
 ## Overview
 Nearly everyone has some experience with Image processing, which is around our daily life. For example, when we use iPhone's camera to take pictures, it allows us to choose a filter which can add some special effects on these pictures. While using these filters, people might have wondered how these special effects are realized.
 
-We developed this package that performs digital image processing on .PNG images. People can use it to transform images into new images with some special effects, such as embossing, to compress images to reduce file sizes, and to calculate the exact number of bytes an image has. We hope to advance and add more functions later on.  
+We developed this package that performs digital image processing on .JPG images. People can use it to transform images into new images with some special effects, such as embossing, to compress images to reduce file sizes, and to calculate the exact number of bytes an image has. We hope to advance and add more functions later on.  
 
 ## Functions
 
@@ -58,7 +58,53 @@ This function returns attributes of the input image, such as dimension, width, h
 - A data frame that has the detailed information about input image.
 
 
-## Similar packages in Python  
+
+
+## Installation
+
+```
+git install git+https://github.com/UBC-MDS/BeautyPy
+```
+
+## Run Tests
+
+From root directory, run all test files in terminal using below command line:
+
+```
+pytest tests/
+```
+
+To test a specific function, run any of below commands:
+```
+pytest tests/test_emboss.py  
+pytest tests/test_flip.py  
+pytest tests/test_get_image_details.py  
+```
+
+## Usage
+
+#### Emboss an image
+```
+>> from BeautyPy.emboss import emboss
+>> emboss("img/Google-logo.jpg", "img/Google-logo_emboss.jpg")
+```
+
+#### Flip an image  
+```
+>> from BeautyPy.flip import flip
+>> flip("img/Google-logo.jpg", "img/Google-logo_flip.jpg", "h")  
+```
+
+#### Get details of an image  
+```
+>> from BeautyPy.get_image_details import get_image_details
+>> get_image_details("img/Google-logo.jpg")
+
+      Dimension	  Width	  Height	   Aspect Ratio
+Image	780 x 439	  780	    439	      780 : 439
+```
+
+## Where does this package fit into the Python ecosystem  
 For image embossing, there are many tools out there in the Python ecosystem. For example, Python package [PIL](https://pillow.readthedocs.io/en/5.1.x/reference/ImageFilter.html) provides an emboss filter, along with other filters, with which people can emboss images. However, the `emboss` tool from PIL is not perfect. Theoretically, an emboss image should be grayscale. But an embossed image created from PIL's emboss filter has some colors along some edges. We decided to develop a new emboss tool that has no such problems. At the same time, we wanted to gain deeper understanding of neural network by coding an emboss filter algorithm.   
 
 
