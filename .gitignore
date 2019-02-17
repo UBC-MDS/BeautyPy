@@ -12,3 +12,4 @@ BeautyPy/__pycache__/get_image_details.cpython-36.pyc
 tests/__pycache__/test_emboss.cpython-36-PYTEST.pyc
 *.pyc
 .DS_Store
+.DS_Store

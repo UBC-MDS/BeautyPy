@@ -1,8 +1,0 @@
-[
-  "tests/test_get_image_details.py::test_input_type",
-  "tests/test_get_image_details.py::test_non_string_input",
-  "tests/test_get_image_details.py::test_nonexistent_input_path",
-  "tests/test_get_image_details.py::test_non_string_detail_name",
-  "tests/test_get_image_details.py::test_invalid_detail_name",
-  "tests/test_get_image_details.py::test_image_details"
-]
