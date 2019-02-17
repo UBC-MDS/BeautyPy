@@ -3,17 +3,17 @@
 
 import numpy as np
 import pandas as pd
-from fractions import gcd
-import matplotlib.image as mpimg
+from PIL import Image
+import skimage.io
 
-def image_details(input_path, detail = 'All'):
+def get_image_details(test_input_file_path, detail = 'All'):
 
     '''
     This function returns details about the image, such as dimension, width, height, and image ratio.
 
     Parameters
     ---------------------------------------
-    input_path (string) ->  The file path for the image we want to return information of.
+    test_input_file_path (string) ->  The file path for the image we want to return information of.
     detail (string) -> The name of attribute that the function will return. Default set to be 'All'.
                         Available choices are: 'All', 'Dimension', 'Width', 'Height', and 'Aspect Ratio'.
 
@@ -24,7 +24,7 @@ def image_details(input_path, detail = 'All'):
 
     try:
         # read input image
-        input_img = mpimg.imread(input_path)
+        input_img = skimage.io.imread(test_input_file_path)
     except FileNotFoundError:
         print("The input path/file does not exist, or the file is not a valid image file.")
         raise
@@ -54,7 +54,7 @@ def image_details(input_path, detail = 'All'):
     if  x % y == 0:
         gcd = y
     else:
-        for i in range(ceil(y/2), 0, -1):
+        for i in range(int(np.ceil(y/2)), 0, -1):
             if x % i == 0 and y % i == 0:
                 gcd = i
                 break

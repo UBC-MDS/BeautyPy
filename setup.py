@@ -10,6 +10,6 @@ setup(
     description='A toolkit for image processing.',
     url = ['https://github.com/UBC-MDS/BeautyPy'],
     download_url = 'na',
-    install_requires=['numpy', 'skimage', 'PIL'],
+    install_requires=['numpy', 'skimage', 'PIL','pandas'],
     long_description=open('README.md').read(),
     )
