@@ -8,7 +8,7 @@ import skimage.io
 def emboss(input_path, output_path):
 
     '''
-    This function embosses the original PNG image and saves the embossed image to output_path.
+    This function embosses the original JPG image and saves the embossed image to output_path.
 
     Parameters
     ---------------------------------------
