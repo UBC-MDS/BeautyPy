@@ -2,3 +2,11 @@
 tmp/
 emboss.ipynb/
 glei_test.ipynb
+.DS_Store
+BeautyPy/Untitled.ipynb
+BeautyPy/.DS_Store
+.pytest_cache/v/cache/lastfailed
+.pytest_cache/v/cache/nodeids
+BeautyPy/__pycache__/get_image_details.cpython-36.pyc
+tests/test_imgs/.DS_Store
+tests/test_imgs/get_image_details/.DS_Store
