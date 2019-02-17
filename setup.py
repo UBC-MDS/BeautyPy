@@ -3,13 +3,13 @@ from distutils.core import setup
 
 setup(
     name='BeautyPy',
-    version='v1.0',
-    author='na',
+    version='0.1',
+    author='Jessie Yu, Olivia Lin, Gilbert Lei',
     packages=['BeautyPy'],
-    author_email= 'na',
     license='MIT',
     description='A toolkit for image processing.',
     url = ['https://github.com/UBC-MDS/BeautyPy'],
     download_url = 'na',
-    install_requires=['numpy', 'matplotlib.image']
+    install_requires=['numpy', 'skimage', 'PIL'],
+    long_description=open('README.md').read(),
     )

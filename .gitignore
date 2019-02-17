@@ -10,3 +10,5 @@ BeautyPy/.DS_Store
 BeautyPy/__pycache__/get_image_details.cpython-36.pyc
 tests/test_imgs/.DS_Store
 tests/test_imgs/get_image_details/.DS_Store
+tests/__pycache__/__init__.cpython-36.pyc
+BeautyPy/__pycache__/__init__.cpython-36.pyc
