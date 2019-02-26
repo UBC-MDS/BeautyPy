@@ -63,7 +63,7 @@ This function returns attributes of the input image, such as dimension, width, h
 ## Installation
 
 ```
-git install git+https://github.com/UBC-MDS/BeautyPy
+pip install git+https://github.com/UBC-MDS/BeautyPy
 ```
 
 ## Run Tests
