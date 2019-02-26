@@ -13,8 +13,8 @@ from BeautyPy.flip import flip
 # In[13]:
 
 
-test_input_file_path = "tests/test_imgs/flip/test_input.png"
-test_output_file_path = "tests/test_imgs/flip/test_output.png"
+test_input_file_path = "test_imgs/flip/test_input.png"
+test_output_file_path = "test_imgs/flip/test_output.png"
 
 test_input = np.array([[[199,160,155],[199,158,152],[201,158,152],[202,157,152],[198,159,154],[199,160,155]],
                        [[202,167,163],[202,165,159],[200,163,157],[199,160,153],[200,161,156],[200,161,156]],
@@ -96,24 +96,24 @@ def test_invalid_input():
     with pytest.raises(AssertionError):
         flip(test_input_file_path,test_output_file_path,"123")
 
-# Check flip vertically middle column
-def test_mid_column_vertical():
-    flip(test_input_file_path,test_output_file_path,"v")
+# Check flip horizentally middle column
+def test_mid_column_horizental():
+    flip(test_input_file_path,test_output_file_path,"h")
     input_img = skimage.io.imread(test_input_file_path)
     test_output = skimage.io.imread(test_output_file_path)
     m,n,d = input_img.shape
 
     if n % 2 == 0:
         mid = n//2
-        assert np.array_equal(input_img[:,mid,:],test_output[:,mid+1,:]),"The middle column is not the same"
+        assert np.array_equal(input_img[:,mid,:],test_output[:,mid-1,:]),"The middle column is not the same"
     else:
         mid=n//2
         assert np.array_equal(input_img[:,mid,:],test_output[:,mid,:]),"The middle column is not the same"
 
 
-# Check flip horizentally middle column
+# Check flip vertically middle column
 def test_mid_column_vertical():
-    flip(test_input_file_path,test_output_file_path,"h")
+    flip(test_input_file_path,test_output_file_path,"v")
     input_img = skimage.io.imread(test_input_file_path)
     test_output = skimage.io.imread(test_output_file_path)
     m,n,d = input_img.shape
