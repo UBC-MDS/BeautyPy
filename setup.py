@@ -11,5 +11,3 @@ setup(
     url = ['https://github.com/UBC-MDS/BeautyPy'],
     download_url = 'na',
     install_requires=['numpy', 'scikit-image', 'Pillow','pandas'],
-    long_description=open('README.md').read(),
-    )
