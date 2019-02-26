@@ -7,7 +7,7 @@ import pytest
 from PIL import Image
 from BeautyPy.get_image_details import get_image_details
 
-test_input_file_path = "tests/test_imgs/get_image_details/test_input.png"
+test_input_file_path = "test_imgs/get_image_details/test_input.png"
 
 test_input = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202, 157, 152], [198, 159, 154]],
                   [[202, 167, 163], [202, 165, 159], [200, 163, 157], [199, 160, 153], [200, 161, 156]],
@@ -36,9 +36,9 @@ def test_input_type():
     '''
 
     with pytest.raises(OSError):
-        get_image_details("tests/test_imgs/get_image_details/input.docx", "All")
+        get_image_details("test_imgs/get_image_details/input.docx", "All")
     with pytest.raises(OSError):
-        get_image_details("tests/test_imgs/get_image_details/input.pdf", "All")
+        get_image_details("test_imgs/get_image_details/input.pdf", "All")
 
 
 def test_non_string_input():

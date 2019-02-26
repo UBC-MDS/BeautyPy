@@ -68,17 +68,17 @@ pip install git+https://github.com/UBC-MDS/BeautyPy
 
 ## Run Tests
 
-From root directory, run all test files in terminal using below command line:
+Got to `tests` directory, run all test files in terminal using below command line:
 
 ```
-pytest tests/
+pytest
 ```
 
 To test a specific function, run any of below commands:
 ```
-pytest tests/test_emboss.py  
-pytest tests/test_flip.py  
-pytest tests/test_get_image_details.py  
+pytest test_emboss.py  
+pytest test_flip.py  
+pytest test_get_image_details.py  
 ```
 
 ## Usage

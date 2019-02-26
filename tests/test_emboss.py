@@ -7,8 +7,8 @@ from PIL import Image
 from BeautyPy.emboss import emboss
 
 # initiate file paths
-test_input_file_path = "tests/test_imgs/emboss/test_input.png"
-test_output_file_path = "tests/test_imgs/emboss/test_output.png"
+test_input_file_path = "test_imgs/emboss/test_input.png"
+test_output_file_path = "test_imgs/emboss/test_output.png"
 
 # prepare test input image array
 test_input = np.array([[[199,160,155],[199,158,152],[201,158,152],[202,157,152],[198,159,154],[199,160,155]],
@@ -32,11 +32,11 @@ exp_output = np.array([[[146, 146, 146], [143, 143, 143], [135, 135, 135], [  1,
 
 def test_input_path_nonexistent():
     with pytest.raises(FileNotFoundError):
-        emboss("tests/test_imgs/hello/world.png", test_output_file_path)
+        emboss("test_imgs/hello/world.png", test_output_file_path)
 
 def test_input_file_type_wrong():
     with pytest.raises(OSError):
-        emboss("tests/test_imgs/emboss/input.pdf", test_output_file_path)
+        emboss("test_imgs/emboss/input.pdf", test_output_file_path)
 
 def test_non_string_input():
     with pytest.raises(AttributeError):
@@ -44,11 +44,11 @@ def test_non_string_input():
 
 def test_output_path_nonexistent():
     with pytest.raises(FileNotFoundError):
-        emboss(test_input_file_path, "tests/test_imgs/hello/world.png")
+        emboss(test_input_file_path, "test_imgs/hello/world.png")
 
 def test_output_file_type_wrong():
     with pytest.raises(ValueError):
-        emboss(test_input_file_path, "tests/test_imgs/emboss/output.ppt")
+        emboss(test_input_file_path, "test_imgs/emboss/output.ppt")
 
 def test_non_string_output():
     with pytest.raises(ValueError):
