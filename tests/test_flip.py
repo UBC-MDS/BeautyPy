@@ -24,7 +24,7 @@ test_input = np.array([[[199,160,155],[199,158,152],[201,158,152]],
                        [[197,156,150],[196,155,149],[196,155,149]]],
                      dtype="uint8")
 
-# save test input image array as a PNG file on computer
+# save test  input image array as a PNG file on computer
 inputImage = Image.fromarray(test_input)
 inputImage.save(test_input_file_path)
 
