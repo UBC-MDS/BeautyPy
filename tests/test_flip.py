@@ -16,19 +16,41 @@ from BeautyPy.flip import flip
 test_input_file_path = "test_imgs/flip/test_input.png"
 test_output_file_path = "test_imgs/flip/test_output.png"
 
-test_input = np.array([[[199,160,155],[199,158,152],[201,158,152],[202,157,152],[198,159,154],[199,160,155]],
-                       [[202,167,163],[202,165,159],[200,163,157],[199,160,153],[200,161,156],[200,161,156]],
-                       [[205,174,169],[202,171,166],[200,167,160],[198,165,158],[198,159,154],[198,159,154]],
-                       [[199,171,167],[195,166,160],[191,162,156],[190,160,152],[196,155,151],[196,155,151]],
-                       [[200,159,155],[197,156,150],[196,155,149],[196,155,149],[194,155,150],[195,156,151]],
-                       [[197,156,150],[196,155,149],[196,155,149],[196,155,149],[194,155,150],[196,157,152]]],
+test_input = np.array([[[199,160,155],[199,158,152],[201,158,152]],
+                       [[202,167,163],[202,165,159],[200,163,157]],
+                       [[205,174,169],[202,171,166],[200,167,160]],
+                       [[199,171,167],[195,166,160],[191,162,156]],
+                       [[200,159,155],[197,156,150],[196,155,149]],
+                       [[197,156,150],[196,155,149],[196,155,149]]],
                      dtype="uint8")
 
-# save test input image array as a PNG file on computer
+# save test  input image array as a PNG file on computer
 inputImage = Image.fromarray(test_input)
 inputImage.save(test_input_file_path)
 
+exp_output_h = np.array([[[201, 158, 152],[199, 158, 152],[199, 160, 155]],
+                         [[200, 163, 157],[202, 165, 159],[202, 167, 163]],
+                         [[200, 167, 160],[202, 171, 166],[205, 174, 169]],
+                         [[191, 162, 156],[195, 166, 160],[199, 171, 167]],
+                         [[196, 155, 149],[197, 156, 150],[200, 159, 155]],
+                         [[196, 155, 149],[196, 155, 149],[197, 156, 150]]], dtype="uint8")
 
+exp_output_v = np.array([[[197, 156, 150],[196, 155, 149],[196, 155, 149]],
+                         [[200, 159, 155],[197, 156, 150],[196, 155, 149]],
+                         [[199, 171, 167],[195, 166, 160],[191, 162, 156]],
+                         [[205, 174, 169],[202, 171, 166],[200, 167, 160]],
+                         [[202, 167, 163],[202, 165, 159],[200, 163, 157]],
+                         [[199, 160, 155],[199, 158, 152],[201, 158, 152]]], dtype="uint8")
+
+def test_flip_v():
+    flip(test_input_file_path, test_output_file_path,"v")
+    test_output_v = skimage.io.imread(test_output_file_path)
+    assert np.array_equal(test_output_v, exp_output_v), "The flip function does not work properly."
+
+def test_flip_h():
+    flip(test_input_file_path, test_output_file_path,"h")
+    test_output_h = skimage.io.imread(test_output_file_path)
+    assert np.array_equal(test_output_h, exp_output_h), "The flip function does not work properly."
 
 
 
@@ -46,7 +68,7 @@ def test_flip_same_size():
 def test_flip_input_type():
     '''
 
-    Test that if the input type is correct.
+    Test that if the input type is png.
 
 
     '''
@@ -55,6 +77,24 @@ def test_flip_input_type():
         flip("test_imgs/emboss/input.pdf",test_output_file_path,"v")
     with pytest.raises(OSError):
         flip("test_input.jpg",test_output_file_path,"v")
+
+def test_flip_input_string():
+    '''
+
+    Test that if the input is string.
+
+    '''
+    with pytest.raises(AttributeError):
+        flip(123,test_output_file_path,"v")
+
+def test_flip_output_string():
+    '''
+
+    Test that if the output is string.
+
+    '''
+    with pytest.raises(ValueError):
+        flip(test_input_file_path,123,"v")
 
 def test_flip_input_shape():
     '''
@@ -90,37 +130,8 @@ def test_nonexistent_output_path():
 def test_invalid_input():
     '''
 
-    Test if the input path is valid
+    Test if the input direction is valid
 
     '''
     with pytest.raises(AssertionError):
         flip(test_input_file_path,test_output_file_path,"123")
-
-# Check flip horizentally middle column
-def test_mid_column_horizental():
-    flip(test_input_file_path,test_output_file_path,"h")
-    input_img = skimage.io.imread(test_input_file_path)
-    test_output = skimage.io.imread(test_output_file_path)
-    m,n,d = input_img.shape
-
-    if n % 2 == 0:
-        mid = n//2
-        assert np.array_equal(input_img[:,mid,:],test_output[:,mid-1,:]),"The middle column is not the same"
-    else:
-        mid=n//2
-        assert np.array_equal(input_img[:,mid,:],test_output[:,mid,:]),"The middle column is not the same"
-
-
-# Check flip vertically middle column
-def test_mid_column_vertical():
-    flip(test_input_file_path,test_output_file_path,"v")
-    input_img = skimage.io.imread(test_input_file_path)
-    test_output = skimage.io.imread(test_output_file_path)
-    m,n,d = input_img.shape
-
-    if n % 2 == 0:
-        mid = n//2
-        assert np.array_equal(input_img[mid,:,:],test_output[mid-1,:,:]),"The middle row is not the same"
-    else:
-        mid=n//2
-        assert np.array_equal(input_img[mid,:,:],test_output[mid,:,:]),"The middle row is not the same"

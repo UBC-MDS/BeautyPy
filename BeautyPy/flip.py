@@ -32,31 +32,25 @@ def flip(input_path, output_path,direction):
     except FileNotFoundError:
         print("The input path/file does not exist, or the file is not a valid image file.")
         raise
-    except TypeError:
+    except AttributeError:
         print("Please provide a string as the path for the input image file.")
         raise
     except OSError:
         print("The input file is not an image.")
         raise
-    except AttributeError:
-        print("Please provide a string as the path for the input image file.")
-        raise
-    except Exception as e:
-        print("General Error:")
-        print(e)
-        raise
+
 
 
     col=input_img.shape[1]
     row=input_img.shape[0]
     output_img=input_img.copy()
-    # horizental flip
+    # horizental  flip
     if direction == "h":
         for i in range(row):
             for j in range(col):
                 output_img[i,j]=input_img[i,col-1-j]
     # vertical flip
-    elif direction == "v":
+    else:
         for i in range(row):
             for j in range(col):
                 output_img[i,j]=input_img[row-1-i,j]
@@ -71,14 +65,4 @@ def flip(input_path, output_path,direction):
         raise
     except ValueError:
         print("Please provide a valid file path or valid file type in the output path.")
-        raise
-    except TypeError:
-        print("Please provide a string as the path for the output image file.")
-        raise
-    except AtrributeError:
-        print("Please provide a string as the path for the output image")
-        raise
-    except Exception as e:
-        print("General Error:")
-        print(e)
         raise
