@@ -44,7 +44,7 @@ def flip(input_path, output_path,direction):
     col=input_img.shape[1]
     row=input_img.shape[0]
     output_img=input_img.copy()
-    # horizental flip
+    # horizental  flip
     if direction == "h":
         for i in range(row):
             for j in range(col):
