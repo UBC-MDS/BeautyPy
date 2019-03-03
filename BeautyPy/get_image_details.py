@@ -28,7 +28,7 @@ def get_image_details(test_input_file_path, detail = 'All'):
     except FileNotFoundError:
         print("The input path/file does not exist, or the file is not a valid image file.")
         raise
-    except TypeError:
+    except AttributeError:
         print("Please provide a string as the path for the input image file.")
         raise
     except Exception as e:
@@ -49,10 +49,12 @@ def get_image_details(test_input_file_path, detail = 'All'):
         x  = h
         y = w
 
+
     gcd = 1
 
-    if  x % y == 0:
-        gcd = y
+
+    if  y % x == 0:
+        gcd = x
     else:
         for i in range(int(np.ceil(y/2)), 0, -1):
             if x % i == 0 and y % i == 0:
@@ -67,19 +69,6 @@ def get_image_details(test_input_file_path, detail = 'All'):
 
     details_df = pd.DataFrame(details, index = ['Image'])
 
-
-    try:
-        detail == 'All' or detail == 'Dimension' or detail == 'Width' or detail == 'Height' or detail == 'Aspect Ratio'
-    except TypeError:
-        print("Please provide a string to specify the name of attribute.")
-        raise
-    except ValueError:
-        print("Please provide a valid attribution name,  or simply leave it as default to get complete information.")
-        raise
-    except Exception as e:
-        print("General Error:")
-        print(e)
-        raise
 
 
     if detail == 'All':
