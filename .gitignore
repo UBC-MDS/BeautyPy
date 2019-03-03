@@ -1,7 +1,6 @@
 .ipynb_checkpoints/
-tmp/
-emboss.ipynb/
-glei_test.ipynb
+.pytest_cache/
+BeautyPy/__pycache__/
 BeautyPy/Untitled.ipynb
 tests/__pycache__/test_flip.cpython-36-PYTEST.pyc
 BeautyPy/__pycache__/flip.cpython-36.pyc
@@ -11,5 +10,5 @@ BeautyPy/__pycache__/emboss.cpython-36.pyc
 BeautyPy/__pycache__/get_image_details.cpython-36.pyc
 tests/__pycache__/test_emboss.cpython-36-PYTEST.pyc
 *.pyc
-.DS_Store
+BeautyPy/.DS_Store
 .DS_Store
