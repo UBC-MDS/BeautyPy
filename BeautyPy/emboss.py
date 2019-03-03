@@ -8,7 +8,7 @@ import skimage.io
 def emboss(input_path, output_path):
 
     '''
-    This function embosses the original PNG image and saves the embossed image to output_path.
+    This function embosses the original JPG image and saves the embossed image to output_path.
 
     Parameters
     ---------------------------------------
@@ -31,10 +31,6 @@ def emboss(input_path, output_path):
         raise
     except AttributeError:
         print("Please provide a string as the path for the input image file.")
-        raise
-    except Exception as e:
-        print("General Error:")
-        print(e)
         raise
 
     # read image dimension
@@ -97,12 +93,6 @@ def emboss(input_path, output_path):
         print("The output path does not exist.")
         raise
     except ValueError:
-        print("Please provide a valid file path or valid file type in the output path.")
+        print("The output path needs to be a string and the file extension needs to be .JPG.")
         raise
-    except TypeError:
-        print("Please provide a string as the path for the output image file.")
-        raise
-    except Exception as e:
-        print("General Error:")
-        print(e)
-        raise
+
