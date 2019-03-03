@@ -7,9 +7,9 @@ import pytest
 from PIL import Image
 from BeautyPy.get_image_details import get_image_details
 
-test_input_file_path = "tests/test_imgs/get_image_details/test_input.png"
 
-test_input = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202, 157, 152], [198, 159, 154]],
+# prepare test input 1
+test_input_1 = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202, 157, 152], [198, 159, 154]],
                   [[202, 167, 163], [202, 165, 159], [200, 163, 157], [199, 160, 153], [200, 161, 156]],
                   [[205, 174, 169], [202, 171, 166], [200, 167, 160], [198, 165, 158], [198, 159, 154]],
                   [[199, 171, 167], [195, 166, 160], [191, 162, 156], [190, 160, 152], [196, 155, 151]],
@@ -21,13 +21,33 @@ test_input = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202,
                   [[194, 151, 142], [196, 153, 144], [197, 154, 145], [198, 155, 146], [195, 155, 147]]],
                  dtype="uint8")
 
+inputImage = Image.fromarray(test_input_1)
+inputImage.save("test_imgs/get_image_details/test_input_1.png")
 
-inputImage = Image.fromarray(test_input)
-inputImage.save(test_input_file_path)
+test_input_path_1 = "test_imgs/get_image_details/test_input_1.png"
 
-expexted_detail = {'Dimension': "5 x 10", 'Width': 5, 'Height': 10, 'Aspect Ratio': "1 : 2"}
+expexted_detail_1 = {'Dimension': "5 x 10", 'Width': 5, 'Height': 10, 'Aspect Ratio': "1 : 2"}
 
-expected_details_df = pd.DataFrame(expexted_detail, index = ['Image'])
+expected_details_df_1 = pd.DataFrame(expexted_detail_1, index = ['Image'])
+
+
+
+# prepare test input 1
+test_input_2 = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152]],
+                  [[202, 167, 163], [202, 165, 159], [200, 163, 157]],
+                  [[205, 174, 169], [202, 171, 166], [200, 167, 160]],
+                  [[199, 171, 167], [195, 166, 160], [191, 162, 156]],
+                  [[200, 159, 155], [197, 156, 150], [196, 155, 149]]],
+                 dtype="uint8")
+
+inputImage = Image.fromarray(test_input_2)
+inputImage.save("test_imgs/get_image_details/test_input_2.png")
+
+test_input_path_2 = "test_imgs/get_image_details/test_input_2.png"
+
+expexted_detail_2 = {'Aspect Ratio': "3 : 5"}
+
+expected_details_df_2 = pd.DataFrame(expexted_detail_2, index = ['Image'])
 
 
 def test_input_type():
@@ -65,7 +85,7 @@ def test_non_string_detail_name():
     '''
 
     with pytest.raises(KeyError):
-        get_image_details(test_input_file_path, 999)
+        get_image_details(test_input_path_1, 999)
 
 
 def test_invalid_detail_name():
@@ -74,7 +94,7 @@ def test_invalid_detail_name():
     '''
 
     with pytest.raises(KeyError):
-        get_image_details(test_input_file_path, "wrong name")
+        get_image_details(test_input_path_1, "wrong name")
 
 
 def test_image_details():
@@ -82,6 +102,10 @@ def test_image_details():
     This function tests whether get_image_details function returns the right details.
     '''
 
-    test_output = get_image_details(test_input_file_path, "All")
-    expected_output = expected_details_df
-    assert np.array_equal(test_output, expected_output), "The image_details function does not work properly."
+    test_output_1 = get_image_details(test_input_path_1, "All")
+    expected_output_1 = expected_details_df_1
+    assert np.array_equal(test_output_1, expected_output_1), "The image_details function does not work properly."
+
+    test_output_2 = get_image_details(test_input_path_2, "Aspect Ratio")
+    expected_output_2 = expected_details_df_2
+    assert np.array_equal(test_output_2, expected_output_2), "The image_details function does not work properly."
