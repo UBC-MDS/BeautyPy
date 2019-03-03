@@ -103,6 +103,17 @@ pytest test_get_image_details.py
       Dimension	  Width	  Height	   Aspect Ratio
 Image	780 x 439	  780	    439	      780 : 439
 ```
+### Coverage Test 
+
+Go to `test` directory and run 
+```
+>> coverage run -m pytest -q test_flip.py test_emboss.py test_get_image_details.py
+
+>> coverage report -m 
+
+```
+
+![](img/coveragepython.png)
 
 ## Where does this package fit into the Python ecosystem  
 For image embossing, there are many tools out there in the Python ecosystem. For example, Python package [PIL](https://pillow.readthedocs.io/en/5.1.x/reference/ImageFilter.html) provides an emboss filter, along with other filters, with which people can emboss images. However, the `emboss` tool from PIL is not perfect. Theoretically, an emboss image should be grayscale. But an embossed image created from PIL's emboss filter has some colors along some edges. We decided to develop a new emboss tool that has no such problems. At the same time, we wanted to gain deeper understanding of neural network by coding an emboss filter algorithm.   
