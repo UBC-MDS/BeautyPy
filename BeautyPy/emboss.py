@@ -32,10 +32,6 @@ def emboss(input_path, output_path):
     except AttributeError:
         print("Please provide a string as the path for the input image file.")
         raise
-    except Exception as e:
-        print("General Error:")
-        print(e)
-        raise
 
     # read image dimension
     h = len(input_img)
@@ -97,12 +93,6 @@ def emboss(input_path, output_path):
         print("The output path does not exist.")
         raise
     except ValueError:
-        print("Please provide a valid file path or valid file type in the output path.")
+        print("The output path needs to be a string and the file extension needs to be .JPG.")
         raise
-    except TypeError:
-        print("Please provide a string as the path for the output image file.")
-        raise
-    except Exception as e:
-        print("General Error:")
-        print(e)
-        raise
+
