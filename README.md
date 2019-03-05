@@ -66,6 +66,8 @@ This function returns attributes of the input image, such as dimension, width, h
 pip install git+https://github.com/UBC-MDS/BeautyPy
 ```
 
+![](img/install.jpg)
+
 ## Run Tests
 
 Got to `tests` directory, run all test files in terminal using below command line:
