@@ -66,7 +66,7 @@ This function returns attributes of the input image, such as dimension, width, h
 pip install git+https://github.com/UBC-MDS/BeautyPy
 ```
 
-![](img/install.jpg)
+![](img/install.jpg){ width=75% }
 
 ## Run Tests
 
@@ -85,16 +85,25 @@ pytest test_get_image_details.py
 
 ## Usage
 
+![](img/Google-logo.png){ width=70% }
+
+
 #### Emboss an image
+
+![](img/Google-logo_emboss.png){ width=70% }
+
 ```
 >> from BeautyPy.emboss import emboss
->> emboss("img/Google-logo.jpg", "img/Google-logo_emboss.jpg")
+>> emboss("img/Google-logo.png", "img/Google-logo_emboss.png")
 ```
 
 #### Flip an image  
+
+![](img/Google-logo_flip.png){ width=70% }
+
 ```
 >> from BeautyPy.flip import flip
->> flip("img/Google-logo.jpg", "img/Google-logo_flip.jpg", "h")  
+>> flip("img/Google-logo.png", "img/Google-logo_flip.png", "h")  
 ```
 
 #### Get details of an image  
@@ -107,6 +116,7 @@ Image	780 x 439	  780	    439	      780 : 439
 ```
 ### Coverage Test 
 
+
 Go to `test` directory and run 
 ```
 >> coverage run -m pytest -q test_flip.py test_emboss.py test_get_image_details.py
@@ -115,7 +125,7 @@ Go to `test` directory and run
 
 ```
 
-![](img/coveragepython.png)
+![](img/coveragepython.jpeg){ width=70% }
 
 ## Where does this package fit into the Python ecosystem  
 For image embossing, there are many tools out there in the Python ecosystem. For example, Python package [PIL](https://pillow.readthedocs.io/en/5.1.x/reference/ImageFilter.html) provides an emboss filter, along with other filters, with which people can emboss images. However, the `emboss` tool from PIL is not perfect. Theoretically, an emboss image should be grayscale. But an embossed image created from PIL's emboss filter has some colors along some edges. We decided to develop a new emboss tool that has no such problems. At the same time, we wanted to gain deeper understanding of neural network by coding an emboss filter algorithm.   
