@@ -7,7 +7,7 @@ from PIL import Image
 from BeautyPy.emboss import emboss
 
 # initiate file paths
-test_input_file_path = "test_imgs/emboss/test_input.png"
+test_input_file_path =  "test_imgs/emboss/test_input.png"
 test_output_file_path = "test_imgs/emboss/test_output.png"
 
 # prepare test input image array
