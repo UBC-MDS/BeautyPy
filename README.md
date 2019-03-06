@@ -73,7 +73,7 @@ A good clean solution is always to go with pure html syntax for sure. With the t
 
 But I was trying to still stick to the markdown syntax so I tried wrapping it around a tag and added whatever attributes i wanted for the image inside the div tag. And it WORKS!!
 
-<div style="width:50%">![](img/install.jpg)</div>
+![](img/install.jpg)
 
 ## Run Tests
 
@@ -92,12 +92,12 @@ pytest test_get_image_details.py
 
 ## Usage
 
-![](img/Google-logo.png){ width=70% }
+![](img/Google-logo.png)
 
 
 #### Emboss an image
 
-![](img/Google-logo_emboss.png){ width=70% }
+![](img/Google-logo_emboss.png)
 
 ```
 >> from BeautyPy.emboss import emboss
@@ -106,7 +106,7 @@ pytest test_get_image_details.py
 
 #### Flip an image  
 
-![](img/Google-logo_flip.png){ width=70% }
+![](img/Google-logo_flip.png)
 
 ```
 >> from BeautyPy.flip import flip
@@ -132,7 +132,7 @@ Go to `test` directory and run
 
 ```
 
-![](img/coveragepython.jpeg){ width=70% }
+![](img/coveragepython.jpeg)
 
 ## Where does this package fit into the Python ecosystem  
 For image embossing, there are many tools out there in the Python ecosystem. For example, Python package [PIL](https://pillow.readthedocs.io/en/5.1.x/reference/ImageFilter.html) provides an emboss filter, along with other filters, with which people can emboss images. However, the `emboss` tool from PIL is not perfect. Theoretically, an emboss image should be grayscale. But an embossed image created from PIL's emboss filter has some colors along some edges. We decided to develop a new emboss tool that has no such problems. At the same time, we wanted to gain deeper understanding of neural network by coding an emboss filter algorithm.   
