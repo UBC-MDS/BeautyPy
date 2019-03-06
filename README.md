@@ -4,6 +4,8 @@
 
 Image processing tool in Python.
 
+[![Build Status](https://travis-ci.org/UBC-MDS/BeautyPy.svg?branch=master)](https://travis-ci.org/UBC-MDS/BeautyPy)
+
 ## Contributors
 
 [Gilbert Lei](https://github.com/gilbertlei)
@@ -114,7 +116,7 @@ pytest test_get_image_details.py
 
 ![](img/Google-logo_flip.png)
 
-#### Get details of an image 
+#### Get details of an image
 
 ```
 >> from BeautyPy.get_image_details import get_image_details
@@ -124,14 +126,14 @@ pytest test_get_image_details.py
 Image	780 x 439	  780	    439	      780 : 439
 ```
 
-### Coverage Test 
+### Coverage Test
 
 
-Go to `test` directory and run 
+Go to `test` directory and run
 ```
 >> coverage run -m pytest -q test_flip.py test_emboss.py test_get_image_details.py
 
->> coverage report -m 
+>> coverage report -m
 
 ```
 
