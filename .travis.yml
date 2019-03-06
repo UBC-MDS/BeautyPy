@@ -10,7 +10,7 @@ install:
   - pip install Pillow
   - pip install pandas
 
-# Command to run tests
+#  Command to run tests
 script:
   - cd tests
   - pytest
