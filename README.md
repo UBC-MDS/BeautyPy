@@ -101,7 +101,7 @@ pytest test_get_image_details.py
 
 ```
 >> from BeautyPy.emboss import emboss
->> emboss("img/Google-logo.png", "img/Google-logo_emboss.png")
+>> emboss("img/Google-logo.jpg", "img/Google-logo_emboss.jpg")
 ```
 
 #### Flip an image  
@@ -116,7 +116,7 @@ pytest test_get_image_details.py
 #### Get details of an image  
 ```
 >> from BeautyPy.get_image_details import get_image_details
->> get_image_details("img/Google-logo.jpg")
+>> get_image_details("img/Google-logo.png")
 
       Dimension	  Width	  Height	   Aspect Ratio
 Image	780 x 439	  780	    439	      780 : 439
