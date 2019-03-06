@@ -66,7 +66,14 @@ This function returns attributes of the input image, such as dimension, width, h
 pip install git+https://github.com/UBC-MDS/BeautyPy
 ```
 
-![](img/install.jpg){ width=75% }
+
+I came here searching for an answer. Some awesome suggestions here. And gold information pointing out that markdown supports HTMl completely!
+
+A good clean solution is always to go with pure html syntax for sure. With the tag.
+
+But I was trying to still stick to the markdown syntax so I tried wrapping it around a tag and added whatever attributes i wanted for the image inside the div tag. And it WORKS!!
+
+<div style="width:50%">![](img/install.jpg)</div>
 
 ## Run Tests
 
