@@ -13,8 +13,8 @@ from BeautyPy.flip import flip
 # In[13]:
 
 
-test_input_file_path =  "test_imgs/flip/test_input.png"
-test_output_file_path = "test_imgs/flip/test_output.png"
+test_input_file_path =  "tests/test_imgs/flip/test_input.png"
+test_output_file_path = "tests/test_imgs/flip/test_output.png"
 
 test_input = np.array([[[199,160,155],[199,158,152],[201,158,152]],
                        [[202,167,163],[202,165,159],[200,163,157]],
@@ -74,7 +74,7 @@ def test_flip_input_type():
     '''
 
     with pytest.raises(OSError):
-        flip("test_imgs/emboss/input.pdf",test_output_file_path,"v")
+        flip("tests/test_imgs/emboss/input.pdf",test_output_file_path,"v")
     with pytest.raises(OSError):
         flip("test_input.jpg",test_output_file_path,"v")
 
@@ -115,7 +115,7 @@ def test_nonexistent_input_path():
 
     '''
     with pytest.raises(FileNotFoundError):
-        flip("test_imgs/hello/world.png", test_output_file_path,"v")
+        flip("tests/test_imgs/hello/world.png", test_output_file_path,"v")
 
 def test_nonexistent_output_path():
     '''
