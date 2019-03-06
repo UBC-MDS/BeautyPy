@@ -97,23 +97,25 @@ pytest test_get_image_details.py
 
 #### Emboss an image
 
-![](img/Google-logo_emboss.png)
-
 ```
 >> from BeautyPy.emboss import emboss
 >> emboss("img/Google-logo.jpg", "img/Google-logo_emboss.jpg")
 ```
 
-#### Flip an image  
+![](img/Google-logo_emboss.jpg)
 
-![](img/Google-logo_flip.png)
+
+#### Flip an image  
 
 ```
 >> from BeautyPy.flip import flip
 >> flip("img/Google-logo.png", "img/Google-logo_flip.png", "h")  
 ```
 
-#### Get details of an image  
+![](img/Google-logo_flip.png)
+
+#### Get details of an image 
+
 ```
 >> from BeautyPy.get_image_details import get_image_details
 >> get_image_details("img/Google-logo.png")
@@ -121,6 +123,7 @@ pytest test_get_image_details.py
       Dimension	  Width	  Height	   Aspect Ratio
 Image	780 x 439	  780	    439	      780 : 439
 ```
+
 ### Coverage Test 
 
 
