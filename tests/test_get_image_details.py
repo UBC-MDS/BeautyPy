@@ -7,7 +7,9 @@ import pytest
 from PIL import Image
 from BeautyPy.get_image_details import get_image_details
 
-# test_input_file_path = "test_imgs/get_image_details/test_input_1.png"
+
+test_input_file_path =  "test_imgs/get_image_details/test_input.png"
+
 
 # prepare test input 1
 test_input_1 = np.array([[[199, 160, 155], [199, 158, 152], [201, 158, 152], [202, 157, 152], [198, 159, 154]],

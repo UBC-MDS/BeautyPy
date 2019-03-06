@@ -13,7 +13,7 @@ from BeautyPy.flip import flip
 # In[13]:
 
 
-test_input_file_path = "test_imgs/flip/test_input.png"
+test_input_file_path =  "test_imgs/flip/test_input.png"
 test_output_file_path = "test_imgs/flip/test_output.png"
 
 test_input = np.array([[[199,160,155],[199,158,152],[201,158,152]],
