@@ -1,7 +1,7 @@
 language: python
 python:
   - "3.6"
-# Command to install dependecies
+#  Command to install dependecies
 install:
   - pip install git+https://github.com/UBC-MDS/BeautyPy
   - pip install -U pytest
