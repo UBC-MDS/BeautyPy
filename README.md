@@ -111,10 +111,12 @@ pytest test_get_image_details.py
 
 ```
 >> from BeautyPy.flip import flip
->> flip("img/Google-logo.png", "img/Google-logo_flip.png", "h")  
+>> flip("img/Google.png", "img/Google_flip_h.png", "h")  
+>> flip("img/Google.png", "img/Google_flip_v.png", "v")
 ```
 
-![](img/Google-logo_flip.png)
+![](img/Google_flip_h.png)
+![](img/Google_flip_v.png)
 
 #### Get details of an image
 
@@ -122,9 +124,8 @@ pytest test_get_image_details.py
 >> from BeautyPy.get_image_details import get_image_details
 >> get_image_details("img/Google-logo.png")
 
-      Dimension	  Width	  Height	   Aspect Ratio
-Image	780 x 439	  780	    439	      780 : 439
 ```
+![](img/get_image_sample.png)
 
 ### Coverage Test
 
